@@ -13,18 +13,5 @@ class ImageCreateAPIView(generics.CreateAPIView):
 
 
 
-class ManipulateView(APIView) :
-	filex = MyImage.objects.order_by('-pk')[0]
-	print(filex)
-	image = filex.model_pic
-	route = f'/media/{str(image)}'
-	
-	print( route )
-	img = cv2.imread(route, 0) 
-		# img = url_to_image(img_for_box_extraction_path)
-	(thresh, img_bin) = cv2.threshold(img, 128, 255,
-										cv2.THRESH_BINARY | cv2.THRESH_OTSU)  
-	img_b = 255-img_bin
-	print( img_b )
 
 
